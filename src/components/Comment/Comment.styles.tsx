@@ -1,3 +1,4 @@
+import ReactTimeago from 'react-timeago';
 import { styled } from 'styled-components';
 
 /**
@@ -8,6 +9,7 @@ export const CommentBox = styled.div`
   width: 100%;
 
   padding: 1.5rem;
+  border-radius: 5px;
 
   display: flex;
   flex-direction: row;
@@ -37,15 +39,56 @@ export const CommentHeader = styled.header`
 
   & > div {
     display: flex;
-    flex-direction: row;
     align-items: center;
-    gap: 1rem;
+    gap: 1.2rem;
+
+    & > p {
+      color: hsl(212, 24%, 26%);
+      font-weight: 700;
+    }
   }
+`;
+
+/**
+ * Para contener el boton de reply
+ */
+export const ReplyButton = styled.button`
+  background: none;
+  border: none;
+
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  font-size: 1rem;
+  color: hsl(238, 40%, 52%);
+  font-weight: 700;
+
+  &:hover {
+    opacity: 50%;
+    cursor: pointer;
+  }
+`;
+
+/**
+ * Para contener el texto del tiempo de creacion
+ */
+export const CreatedAt = styled(ReactTimeago)`
+  color: hsl(211, 10%, 45%);
+  font-weight: 400;
 `;
 
 /**
  * Para la foto de perfil del usuario
  */
 export const ProfilePicture = styled.img`
-  width: 40px;
+  width: 35px;
+`;
+
+/**
+ * Para contener el contenido del mensaje
+ */
+export const CommentContent = styled.p`
+  color: hsl(211, 10%, 45%);
+  line-height: 22px;
 `;

@@ -1,11 +1,13 @@
 import React from 'react';
-import TimeAgo from 'react-timeago';
 
 import {
   CommentBox,
+  CommentContent,
   CommentElements,
   CommentHeader,
+  CreatedAt,
   ProfilePicture,
+  ReplyButton,
 } from './Comment.styles';
 
 import Photo from '@/assets/avatars/image-amyrobson.png';
@@ -26,16 +28,20 @@ function Comment({ username, datetime }: CommentProps) {
           <div>
             <ProfilePicture src={Photo} alt="profile picture" />
             <p>{username}</p>
-            <TimeAgo date={datetime} />
+            <CreatedAt date={datetime} />
           </div>
-          <button>
+          <ReplyButton>
             <img src={IconReply} alt="icon reply" /> Reply
-          </button>
+          </ReplyButton>
         </CommentHeader>
-        <p data-testid="content">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores,
-          minima.
-        </p>
+        <CommentContent data-testid="content">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa magnam
+          perspiciatis reprehenderit, possimus, vel animi cupiditate laudantium
+          magni unde exercitationem illum modi non neque facere cumque quisquam?
+          Officiis itaque facilis consequatur temporibus aspernatur placeat ea
+          eveniet qui cumque perferendis, exercitationem sunt molestiae, esse
+          velit! Asperiores enim velit molestiae commodi voluptas.
+        </CommentContent>
       </CommentElements>
     </CommentBox>
   );
