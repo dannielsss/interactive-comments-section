@@ -92,3 +92,40 @@ export const CommentContent = styled.p`
   color: hsl(211, 10%, 45%);
   line-height: 22px;
 `;
+
+/**
+ * Para contener el contador
+ */
+export const CounterBox = styled.div`
+  padding: 0.5rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  font-size: 18px;
+  gap: 0.3rem;
+
+  height: 125px;
+
+  background: hsl(228, 33%, 97%);
+  color: hsl(238, 40%, 52%);
+  font-weight: 700;
+`;
+
+/**
+ * Para los botones del contador
+ */
+export const CounterButton = styled.button`
+  background: none;
+  border: none;
+  font-size: 25px;
+  font-weight: 700;
+  padding: 5px;
+  color: hsl(211, 10%, 45%);
+
+  &:hover {
+    cursor: pointer;
+    color: hsl(238, 40%, 52%);
+  }
+`;

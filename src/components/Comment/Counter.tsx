@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
+import { CounterBox, CounterButton } from './Comment.styles';
 
 function Counter() {
   const [counter, setCounter] = useState(0);
 
   return (
-    <div data-testid="counter">
-      <button onClick={() => setCounter((prev) => prev + 1)}>+</button>
+    <CounterBox data-testid="counter">
+      <CounterButton onClick={() => setCounter((prev) => prev + 1)}>
+        +
+      </CounterButton>
       <p data-testid="counter-text">{counter}</p>
-      <button onClick={() => setCounter((prev) => prev - 1)}>-</button>
-    </div>
+      <CounterButton onClick={() => setCounter((prev) => prev - 1)}>
+        -
+      </CounterButton>
+    </CounterBox>
   );
 }
 
