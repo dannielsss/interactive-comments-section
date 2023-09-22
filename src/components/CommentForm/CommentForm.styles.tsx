@@ -1,5 +1,3 @@
-// TODO Create: CommentSendButton
-
 import styled from 'styled-components';
 
 /**
