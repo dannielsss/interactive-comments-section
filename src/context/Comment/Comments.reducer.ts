@@ -4,10 +4,10 @@ import { Actions, CommentsContextState } from './Comments.constants';
 export const CommentsReducer = (
   state: CommentsContextState,
   action: Actions
-) => {
+): CommentsContextState => {
   switch (action.type) {
-    case 'test':
-      return { ...state };
+    case 'NEW_COMMENT':
+      return { ...state, comments: [...state.comments, action.payload] };
     default:
       return state;
   }

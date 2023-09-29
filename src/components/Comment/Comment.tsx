@@ -10,23 +10,18 @@ import {
   ReplyButton,
 } from './Comment.styles';
 
-import Photo from '@/assets/avatars/image-amyrobson.png';
+import { IComment } from '@/context/Comment/Comments.constants';
 import IconReply from '@/assets/icon-reply.svg';
 import Counter from './Counter';
 
-interface CommentProps {
-  username: string;
-  datetime: Date;
-}
-
-function Comment({ username, datetime }: CommentProps) {
+function Comment({ username, datetime, content, profilePicture }: IComment) {
   return (
     <CommentBox>
       <Counter />
       <CommentElements>
         <CommentHeader data-testid="heading">
           <div>
-            <ProfilePicture src={Photo} alt="profile picture" />
+            <ProfilePicture src={profilePicture} alt="profile picture" />
             <p>{username}</p>
             <CreatedAt date={datetime} />
           </div>
@@ -34,14 +29,7 @@ function Comment({ username, datetime }: CommentProps) {
             <img src={IconReply} alt="icon reply" /> Reply
           </ReplyButton>
         </CommentHeader>
-        <CommentContent data-testid="content">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa magnam
-          perspiciatis reprehenderit, possimus, vel animi cupiditate laudantium
-          magni unde exercitationem illum modi non neque facere cumque quisquam?
-          Officiis itaque facilis consequatur temporibus aspernatur placeat ea
-          eveniet qui cumque perferendis, exercitationem sunt molestiae, esse
-          velit! Asperiores enim velit molestiae commodi voluptas.
-        </CommentContent>
+        <CommentContent data-testid="content">{content}</CommentContent>
       </CommentElements>
     </CommentBox>
   );

@@ -15,7 +15,11 @@ export const CommentFormBox = styled.form`
 /**
  * Para contener el textarea para escribir el comentario
  */
-export const CommentTextarea = styled.textarea`
+interface CommentTextareaProps {
+  error: boolean | undefined;
+}
+
+export const CommentTextarea = styled.textarea<CommentTextareaProps>`
   width: 100%;
   min-height: 100px;
   height: 100px;
@@ -25,12 +29,12 @@ export const CommentTextarea = styled.textarea`
   font-family: 'Rubik', sans-serif;
 
   border-radius: 5px;
-  border: 1px solid #0000003d;
+  border: ${(props) => (props.error ? '1px solid red' : '1px solid #0000003d')};
   outline: none;
 
   &:focus {
     cursor: pointer;
-    border: 1px solid #000000;
+    border: ${(props) => (props.error ? '1px solid red' : '1px solid #000000')};
   }
 `;
 

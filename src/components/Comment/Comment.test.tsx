@@ -4,7 +4,16 @@ import Comment from './Comment';
 
 describe('Comment component', () => {
   beforeEach(() => {
-    render(<Comment username="amyrobson" datetime={new Date()} />);
+    render(
+      <Comment
+        username="amyrobson"
+        datetime={new Date()}
+        content="quepedo"
+        counter={0}
+        id="asdasdasd"
+        profilePicture=""
+      />
+    );
   });
   afterEach(cleanup);
 
