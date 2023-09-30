@@ -1,13 +1,15 @@
+import { Dispatch } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import {
   ProfilePictureMaxBlagun,
   ProfilePictureRamsesMiron,
 } from '@/constants';
-import { Dispatch } from 'react';
 
 // Interfaz para el comentario
 export interface IComment {
   id: string;
-  username: string;
+  author: string;
+  author_id: string;
   profilePicture: string;
   content: string;
   datetime: Date;
@@ -33,15 +35,16 @@ export interface CommentsContextState {
 export const INITIAL_STATE: CommentsContextState = {
   comments: [
     {
-      id: '1234',
-      username: 'edel',
+      id: uuidv4(),
+      author: 'edel',
       datetime: new Date(),
       content: 'quepedo',
       profilePicture: ProfilePictureMaxBlagun,
+      author_id: '',
     },
   ],
   myProfile: {
-    id: '1234',
+    id: 'myProfile',
     username: 'daniel',
     profilePicture: ProfilePictureRamsesMiron,
   },

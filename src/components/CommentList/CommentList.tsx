@@ -10,10 +10,11 @@ function CommentList() {
     <CommentListBox data-testid="comment-list">
       {comments.map((comment) => (
         <CommentComponent
-          username={comment.username}
+          author={comment.author}
           datetime={comment.datetime}
           content={comment.content}
           profilePicture={comment.profilePicture}
+          author_id={comment.author_id}
           id={comment.id}
           key={comment.id}
         />

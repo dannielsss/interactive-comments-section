@@ -26,7 +26,8 @@ function CommentForm() {
         content: comment,
         datetime: new Date(),
         profilePicture: myProfile.profilePicture,
-        username: myProfile.username,
+        author: myProfile.username,
+        author_id: myProfile.id,
       },
     });
     setError(false);

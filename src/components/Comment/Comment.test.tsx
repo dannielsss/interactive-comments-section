@@ -1,18 +1,23 @@
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import Comment from './Comment';
+import CommentsProvider from '@/context/Comment/Comments.provider';
 
 describe('Comment component', () => {
   beforeEach(() => {
     render(
-      <Comment
-        username="amyrobson"
-        datetime={new Date()}
-        content="quepedo"
-        counter={0}
-        id="asdasdasd"
-        profilePicture=""
-      />
+      <>
+        <CommentsProvider>
+          <Comment
+            author="amyrobson"
+            datetime={new Date()}
+            content="quepedo"
+            id="asdasdasd"
+            profilePicture=""
+            author_id="myProfile"
+          />
+        </CommentsProvider>
+      </>
     );
   });
   afterEach(cleanup);
@@ -34,12 +39,6 @@ describe('Comment component', () => {
   /// CREATED AT TESTS
   it('displays the time as "0 seconds ago"', () => {
     screen.getByText('0 seconds ago');
-  });
-
-  /// REPLY BUTTON TESTS
-  it('displays a reply button', () => {
-    screen.getByText('Reply');
-    screen.getByAltText('icon reply');
   });
 
   /// COMMENT CONTENT TESTS

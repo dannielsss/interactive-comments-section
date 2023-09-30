@@ -52,7 +52,11 @@ export const CommentHeader = styled.header`
 /**
  * Para contener el boton de reply
  */
-export const ReplyButton = styled.button`
+interface ButtonProps {
+  deletemode?: boolean;
+}
+
+export const Button = styled.button<ButtonProps>`
   background: none;
   border: none;
 
@@ -61,7 +65,8 @@ export const ReplyButton = styled.button`
   gap: 0.5rem;
 
   font-size: 1rem;
-  color: hsl(238, 40%, 52%);
+  color: ${(props) =>
+    props.deletemode ? 'hsl(358, 79%, 66%)' : 'hsl(238, 40%, 52%)'};
   font-weight: 700;
 
   &:hover {
