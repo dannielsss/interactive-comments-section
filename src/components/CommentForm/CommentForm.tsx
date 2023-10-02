@@ -1,4 +1,4 @@
-import React, { FormEvent, useContext, useState } from 'react';
+import React, { FormEvent, useContext, useRef, useState } from 'react';
 import { CommentsContext } from '@/context/Comment/Comments.context';
 import { v4 as uuidv4 } from 'uuid';
 import {
@@ -9,27 +9,33 @@ import {
 } from './CommentForm.styles';
 
 function CommentForm() {
+  const elementCommentTextarea = useRef<HTMLTextAreaElement>(null);
   const { myProfile, dispatch } = useContext(CommentsContext);
   const [error, setError] = useState(false);
-  const [comment, setComment] = useState('');
 
   const onCommentButtonClick = (e: FormEvent) => {
     e.preventDefault();
 
     // Validar el textarea
-    if (comment.length === 0) return setError(true);
+    if (
+      !elementCommentTextarea.current ||
+      !elementCommentTextarea.current.value
+    )
+      return setError(true);
 
     dispatch({
       type: 'NEW_COMMENT',
       payload: {
         id: uuidv4(),
-        content: comment,
+        content: elementCommentTextarea.current.value,
         datetime: new Date(),
         profilePicture: myProfile.profilePicture,
         author: myProfile.username,
         author_id: myProfile.id,
       },
     });
+
+    elementCommentTextarea.current.value = '';
     setError(false);
   };
 
@@ -44,8 +50,8 @@ function CommentForm() {
         rows={10}
         data-testid="comment-input"
         placeholder="Add a comment"
-        onChange={(e) => setComment(e.target.value)}
-        error={error ? true : undefined}
+        ref={elementCommentTextarea}
+        $error={error}
       ></CommentTextarea>
       <CommentSendButton
         type="submit"

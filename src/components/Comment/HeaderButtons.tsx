@@ -17,7 +17,7 @@ function HeaderButtons({ myProfileId, authorId }: HeaderButtonsProps) {
       {/* TODO Refactorizar esto porque se ve feo */}
       {authorId === myProfileId ? (
         <>
-          <Button deletemode>
+          <Button $deletemode={true}>
             <img src={IconDelete} alt="icon delete" /> Delete
           </Button>
           <Button>

@@ -63,7 +63,7 @@ export const CommentHeader = styled.header`
  * Para contener el boton de reply
  */
 interface ButtonProps {
-  deletemode?: boolean;
+  $deletemode?: boolean;
 }
 
 export const Button = styled.button<ButtonProps>`
@@ -76,7 +76,7 @@ export const Button = styled.button<ButtonProps>`
 
   font-size: 1rem;
   color: ${(props) =>
-    props.deletemode ? 'hsl(358, 79%, 66%)' : 'hsl(238, 40%, 52%)'};
+    props.$deletemode ? 'hsl(358, 79%, 66%)' : 'hsl(238, 40%, 52%)'};
   font-weight: 700;
 
   &:hover {
