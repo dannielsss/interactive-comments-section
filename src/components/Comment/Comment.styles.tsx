@@ -17,6 +17,16 @@ export const CommentBox = styled.div`
 `;
 
 /**
+ * Para el titulo de you
+ */
+export const YouTitle = styled.div`
+  background: hsl(238, 40%, 52%);
+  padding: 2px 10px;
+  color: #ffffff;
+  border-radius: 5px;
+`;
+
+/**
  * Para contener los elementos del comentario
  */
 export const CommentElements = styled.div`

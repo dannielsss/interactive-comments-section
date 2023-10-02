@@ -7,6 +7,7 @@ import {
   CommentHeader,
   CreatedAt,
   ProfilePicture,
+  YouTitle,
 } from './Comment.styles';
 
 import { CommentsContext } from '@/context/Comment/Comments.context';
@@ -32,6 +33,7 @@ function Comment({
           <div>
             <ProfilePicture src={profilePicture} alt="profile picture" />
             <p>{author}</p>
+            {author_id === myProfile.id ? <YouTitle>you</YouTitle> : null}
             {/* "live" prop in this component is used for automatic update of its value */}
             <CreatedAt date={datetime} />
           </div>
