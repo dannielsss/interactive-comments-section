@@ -1,4 +1,5 @@
 import ReactTimeago from 'react-timeago';
+import { COLORS } from '@/constants';
 import { styled } from 'styled-components';
 
 /**
@@ -20,7 +21,7 @@ export const CommentBox = styled.div`
  * Para el titulo de you
  */
 export const YouTitle = styled.div`
-  background: hsl(238, 40%, 52%);
+  background: ${COLORS.primary.ModerateBlue};
   padding: 2px 10px;
   color: #ffffff;
   border-radius: 5px;
@@ -53,7 +54,7 @@ export const CommentHeader = styled.header`
     gap: 1.2rem;
 
     & > p {
-      color: hsl(212, 24%, 26%);
+      color: ${COLORS.neutral.DarkBlue};
       font-weight: 700;
     }
   }
@@ -76,7 +77,7 @@ export const Button = styled.button<ButtonProps>`
 
   font-size: 1rem;
   color: ${(props) =>
-    props.$deletemode ? 'hsl(358, 79%, 66%)' : 'hsl(238, 40%, 52%)'};
+    props.$deletemode ? COLORS.primary.SoftRed : COLORS.primary.ModerateBlue};
   font-weight: 700;
 
   &:hover {
@@ -89,7 +90,7 @@ export const Button = styled.button<ButtonProps>`
  * Para contener el texto del tiempo de creacion
  */
 export const CreatedAt = styled(ReactTimeago)`
-  color: hsl(211, 10%, 45%);
+  color: ${COLORS.neutral.GrayishBlue};
   font-weight: 400;
 `;
 
@@ -104,7 +105,7 @@ export const ProfilePicture = styled.img`
  * Para contener el contenido del mensaje
  */
 export const CommentContent = styled.p`
-  color: hsl(211, 10%, 45%);
+  color: ${COLORS.neutral.GrayishBlue};
   line-height: 22px;
 `;
 
@@ -123,8 +124,8 @@ export const CounterBox = styled.div`
 
   height: 125px;
 
-  background: hsl(228, 33%, 97%);
-  color: hsl(238, 40%, 52%);
+  background: ${COLORS.neutral.VeryLightGray};
+  color: ${COLORS.primary.ModerateBlue};
   font-weight: 700;
 `;
 
@@ -141,6 +142,6 @@ export const CounterButton = styled.button`
 
   &:hover {
     cursor: pointer;
-    color: hsl(238, 40%, 52%);
+    color: ${COLORS.primary.ModerateBlue};
   }
 `;

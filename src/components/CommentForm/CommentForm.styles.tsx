@@ -1,3 +1,4 @@
+import { COLORS } from '@/constants';
 import styled from 'styled-components';
 
 /**
@@ -49,7 +50,7 @@ export const CommentProfilePicture = styled.img`
 `;
 
 export const CommentSendButton = styled.button`
-  background: hsl(238, 40%, 52%);
+  background: ${COLORS.primary.ModerateBlue};
 
   height: 50px;
   width: 100px;
