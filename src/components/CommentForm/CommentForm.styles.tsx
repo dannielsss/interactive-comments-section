@@ -1,4 +1,3 @@
-import { COLORS } from '@/constants';
 import styled from 'styled-components';
 
 /**
@@ -22,17 +21,18 @@ interface CommentTextareaProps {
 
 export const CommentTextarea = styled.textarea<CommentTextareaProps>`
   width: 100%;
-  min-height: 100px;
   height: 100px;
   padding: 1rem;
   font-size: 1em;
+
+  resize: none;
+  outline: none;
 
   font-family: 'Rubik', sans-serif;
 
   border-radius: 5px;
   border: ${(props) =>
     props.$error ? '1px solid red' : '1px solid #0000003d'};
-  outline: none;
 
   &:focus {
     cursor: pointer;
@@ -47,24 +47,4 @@ export const CommentTextarea = styled.textarea<CommentTextareaProps>`
 export const CommentProfilePicture = styled.img`
   width: 50px;
   height: 50px;
-`;
-
-export const CommentSendButton = styled.button`
-  background: ${COLORS.primary.ModerateBlue};
-
-  height: 50px;
-  width: 100px;
-
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-
-  font-size: 1em;
-  font-weight: 700;
-  font-family: 'Rubik', sans-serif;
-
-  &:hover {
-    opacity: 50%;
-    cursor: pointer;
-  }
 `;

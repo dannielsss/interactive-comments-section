@@ -1,10 +1,10 @@
 import React, { FormEvent, useContext, useRef, useState } from 'react';
 import { CommentsContext } from '@/context/Comment/Comments.context';
+import { ButtonForm } from '../shared/ButtonForm';
 import { v4 as uuidv4 } from 'uuid';
 import {
   CommentFormBox,
   CommentProfilePicture,
-  CommentSendButton,
   CommentTextarea,
 } from './CommentForm.styles';
 
@@ -53,13 +53,14 @@ function CommentForm() {
         ref={elementCommentTextarea}
         $error={error}
       ></CommentTextarea>
-      <CommentSendButton
+      <ButtonForm
         type="submit"
         data-testid="send-button"
         onClick={onCommentButtonClick}
+        $blue
       >
         SEND
-      </CommentSendButton>
+      </ButtonForm>
     </CommentFormBox>
   );
 }

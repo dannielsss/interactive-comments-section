@@ -9,18 +9,25 @@ import { Button } from './Comment.styles';
 interface HeaderButtonsProps {
   myProfileId: string;
   authorId: string;
+
+  setIsEditing: React.Dispatch<React.SetStateAction<boolean>>;
+  isEditing: boolean;
 }
 
-function HeaderButtons({ myProfileId, authorId }: HeaderButtonsProps) {
+function HeaderButtons({
+  myProfileId,
+  authorId,
+  setIsEditing,
+  isEditing,
+}: HeaderButtonsProps) {
   return (
     <div>
-      {/* TODO Refactorizar esto porque se ve feo */}
       {authorId === myProfileId ? (
         <>
           <Button $deletemode={true}>
             <img src={IconDelete} alt="icon delete" /> Delete
           </Button>
-          <Button>
+          <Button onClick={() => setIsEditing(!isEditing)}>
             <img src={IconEdit} alt="icon edit" /> Edit
           </Button>
         </>

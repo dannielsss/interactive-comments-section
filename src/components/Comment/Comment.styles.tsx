@@ -102,11 +102,40 @@ export const ProfilePicture = styled.img`
 `;
 
 /**
+ * Para contener los botones del modo edicion
+ */
+export const EditModeButtonsBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+`;
+
+/**
  * Para contener el contenido del mensaje
  */
-export const CommentContent = styled.p`
-  color: ${COLORS.neutral.GrayishBlue};
+interface CommentContentProps {
+  $editingMode: boolean;
+}
+
+export const CommentContent = styled.textarea<CommentContentProps>`
+  font-family: 'Rubik', sans-serif;
+  font-size: 1em;
   line-height: 22px;
+
+  outline: none;
+  background: none;
+
+  border-radius: 5px;
+  padding: 10px;
+
+  width: 100%;
+  height: 100%;
+  resize: none;
+
+  border: ${(props) => (props.$editingMode ? '1px solid black' : 'none')};
+  cursor: ${(props) => (props.$editingMode ? 'text' : 'default')};
+  color: ${(props) =>
+    props.$editingMode ? 'black' : COLORS.neutral.GrayishBlue};
 `;
 
 /**
