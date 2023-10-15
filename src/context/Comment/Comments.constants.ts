@@ -5,6 +5,12 @@ import {
   ProfilePictureRamsesMiron,
 } from '@/constants';
 
+// Interfaz para el comentario a editar
+export interface IEditComment {
+  content: string;
+  comment_id: string;
+}
+
 // Interfaz para el comentario
 export interface IComment {
   id: string;
@@ -15,6 +21,7 @@ export interface IComment {
   datetime: Date;
 }
 
+// Interfaz para el usuario
 export interface IUser {
   id: string;
   username: string;
@@ -22,7 +29,9 @@ export interface IUser {
 }
 
 // Acciones para el dispatch reducer
-export type Actions = { type: 'NEW_COMMENT'; payload: IComment };
+export type Actions =
+  | { type: 'NEW_COMMENT'; payload: IComment }
+  | { type: 'UPDATE_COMMENT'; payload: IEditComment };
 
 // Interfaz para los valores del contexto
 export interface CommentsContextState {
@@ -38,7 +47,7 @@ export const INITIAL_STATE: CommentsContextState = {
       id: uuidv4(),
       author: 'edel',
       datetime: new Date(),
-      content: 'quepedo',
+      content: 'si',
       profilePicture: ProfilePictureMaxBlagun,
       author_id: '',
     },

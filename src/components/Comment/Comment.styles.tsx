@@ -113,11 +113,19 @@ export const EditModeButtonsBox = styled.div`
 /**
  * Para contener el contenido del mensaje
  */
-interface CommentContentProps {
-  $editingMode: boolean;
+export const CommentContent = styled.p`
+  font-size: 1em;
+  line-height: 22px;
+`;
+
+/**
+ * Para contener el contenido del mensaje cuando sea modo edicion
+ */
+interface CommentTextareaProps {
+  $error: boolean;
 }
 
-export const CommentContent = styled.textarea<CommentContentProps>`
+export const CommentTextarea = styled.textarea<CommentTextareaProps>`
   font-family: 'Rubik', sans-serif;
   font-size: 1em;
   line-height: 22px;
@@ -132,10 +140,8 @@ export const CommentContent = styled.textarea<CommentContentProps>`
   height: 100%;
   resize: none;
 
-  border: ${(props) => (props.$editingMode ? '1px solid black' : 'none')};
-  cursor: ${(props) => (props.$editingMode ? 'text' : 'default')};
-  color: ${(props) =>
-    props.$editingMode ? 'black' : COLORS.neutral.GrayishBlue};
+  border: ${(props) =>
+    props.$error ? '1px solid red' : '1px solid #0000003d'};
 `;
 
 /**

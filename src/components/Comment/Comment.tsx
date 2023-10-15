@@ -2,19 +2,19 @@ import React, { useContext, useState } from 'react';
 
 import {
   CommentBox,
-  CommentContent,
   CommentElements,
   CommentHeader,
   CreatedAt,
   ProfilePicture,
   YouTitle,
+  CommentContent,
 } from './Comment.styles';
 
 import { CommentsContext } from '@/context/Comment/Comments.context';
 import { IComment } from '@/context/Comment/Comments.constants';
 
 import HeaderButtons from './HeaderButtons';
-import EditButtons from './EditButtons';
+import EditMode from './EditMode';
 import Counter from './Counter';
 
 function Comment({
@@ -23,6 +23,7 @@ function Comment({
   datetime,
   content,
   profilePicture,
+  id,
 }: IComment) {
   const [isEditing, setIsEditing] = useState(false);
   const { myProfile } = useContext(CommentsContext);
@@ -47,15 +48,11 @@ function Comment({
             setIsEditing={setIsEditing}
           />
         </CommentHeader>
-        <form>
-          <CommentContent
-            data-testid="content"
-            defaultValue={content}
-            $editingMode={isEditing}
-            disabled={!isEditing}
-          ></CommentContent>
-        </form>
-        <EditButtons isEditing={isEditing} setIsEditing={setIsEditing} />
+        {isEditing ? (
+          <EditMode cContent={content} setIsEditing={setIsEditing} cId={id} />
+        ) : (
+          <CommentContent>{content}</CommentContent>
+        )}
       </CommentElements>
     </CommentBox>
   );

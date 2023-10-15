@@ -1,3 +1,4 @@
+/* eslint-disable no-case-declarations */
 import { Actions, CommentsContextState } from './Comments.constants';
 
 // Reducers para los comentarios
@@ -8,6 +9,16 @@ export const CommentsReducer = (
   switch (action.type) {
     case 'NEW_COMMENT':
       return { ...state, comments: [...state.comments, action.payload] };
+    case 'UPDATE_COMMENT':
+      const commentId = action.payload.comment_id;
+      const commentContent = action.payload.content;
+
+      const findCommentIndex = state.comments.findIndex(
+        (comment) => comment.id === commentId
+      );
+
+      state.comments[findCommentIndex].content = commentContent;
+      return { ...state };
     default:
       return state;
   }
