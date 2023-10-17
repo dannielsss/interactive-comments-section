@@ -2,6 +2,7 @@ import React, { useRef, useState, useContext } from 'react';
 import { CommentTextarea, EditModeButtonsBox } from './Comment.styles';
 import { CommentsContext } from '@/context/Comment/Comments.context';
 import { ButtonForm } from '../shared/ButtonForm';
+import { toast } from 'react-toastify';
 
 interface EditModeProps {
   setIsEditing: React.Dispatch<React.SetStateAction<boolean>>;
@@ -32,6 +33,16 @@ function EditMode({ setIsEditing, cContent, cId }: EditModeProps) {
 
     setError(false);
     setIsEditing(false);
+    toast.success(`Edicion completada`, {
+      position: 'top-right',
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'light',
+    });
   };
 
   return (
