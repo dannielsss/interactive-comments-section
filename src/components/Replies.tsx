@@ -1,9 +1,8 @@
 import React from 'react';
 import { CommentsList } from './shared/CommentsList';
-import CommentComponent from './Comment/Comment';
 import { useComments } from '@/hooks/useComments';
+import CommentComponent from './Comment/Comment';
 import styled from 'styled-components';
-import { COLORS } from '@/constants';
 
 interface RepliesProps {
   commentParentId: string;
@@ -12,7 +11,7 @@ interface RepliesProps {
 const RepliesList = styled(CommentsList)`
   padding-left: 2rem;
   margin-left: 2.5rem;
-  border-left: 3px solid ${COLORS.neutral.GrayishBlue};
+  border-left: 3px solid #00000014;
 `;
 
 function Replies({ commentParentId }: RepliesProps) {
