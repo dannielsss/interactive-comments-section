@@ -4,6 +4,7 @@ import { CommentsContext } from '@/context/Comment/Comments.context';
 import { ButtonForm } from '../shared/ButtonForm';
 import { toast } from 'react-toastify';
 
+// c = comment
 interface EditModeProps {
   setIsEditing: React.Dispatch<React.SetStateAction<boolean>>;
   cContent: string;

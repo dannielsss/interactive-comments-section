@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const CommentListBox = styled.div`
+export const CommentsList = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;

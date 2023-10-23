@@ -19,6 +19,8 @@ export const CommentsReducer = (
 
       state.comments[findCommentIndex].content = commentContent;
       return { ...state };
+    case 'REPLY_COMMENT':
+      return { ...state, replies: [...state.replies, action.payload] };
     default:
       return state;
   }

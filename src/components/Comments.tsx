@@ -1,13 +1,13 @@
 import React from 'react';
-import { CommentListBox } from './CommentList.styles';
-import CommentComponent from '../Comment/Comment';
+import { CommentsList } from './shared/CommentsList';
+import CommentComponent from './Comment/Comment';
 import { useComments } from '@/hooks/useComments';
 
 function CommentList() {
   const { comments } = useComments();
 
   return (
-    <CommentListBox data-testid="comment-list">
+    <CommentsList data-testid="comment-list">
       {comments.map((comment) => (
         <CommentComponent
           author={comment.author}
@@ -19,7 +19,7 @@ function CommentList() {
           key={comment.id}
         />
       ))}
-    </CommentListBox>
+    </CommentsList>
   );
 }
 

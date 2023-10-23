@@ -10,8 +10,13 @@ interface HeaderButtonsProps {
   myProfileId: string;
   authorId: string;
 
+  // Props para el editing mode
   setIsEditing: React.Dispatch<React.SetStateAction<boolean>>;
   isEditing: boolean;
+
+  // Props para el reply mode
+  setIsReply: React.Dispatch<React.SetStateAction<boolean>>;
+  isReply: boolean;
 }
 
 function HeaderButtons({
@@ -19,6 +24,8 @@ function HeaderButtons({
   authorId,
   setIsEditing,
   isEditing,
+  setIsReply,
+  isReply,
 }: HeaderButtonsProps) {
   return (
     <div>
@@ -32,8 +39,9 @@ function HeaderButtons({
           </Button>
         </>
       ) : (
-        <Button>
-          <img src={IconReply} alt="icon reply" /> Reply
+        <Button onClick={() => setIsReply(!isReply)}>
+          <img src={IconReply} alt="icon reply" />
+          {isReply ? 'Cancel' : 'Reply'}
         </Button>
       )}
     </div>
