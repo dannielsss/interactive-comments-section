@@ -116,6 +116,7 @@ export const EditModeButtonsBox = styled.div`
 export const CommentContent = styled.p`
   font-size: 1em;
   line-height: 22px;
+  white-space: pre;
 `;
 
 /**

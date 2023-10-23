@@ -38,15 +38,17 @@ function CommentForm({
     )
       return setError(true);
 
+    const commentContent = elementCommentTextarea.current.value.trim();
+
     if (replyMode && setIsReply && commentReplyId) {
-      newReply(elementCommentTextarea.current.value, commentReplyId);
+      newReply(commentContent, commentReplyId);
       setIsReply(false);
       setError(false);
       elementCommentTextarea.current.value = '';
       return;
     }
 
-    newComment(elementCommentTextarea.current.value);
+    newComment(commentContent);
     setError(false);
     elementCommentTextarea.current.value = '';
   };
