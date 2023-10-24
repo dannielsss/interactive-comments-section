@@ -13,6 +13,7 @@ import {
 import { IComment } from '@/context/Comment/Comments.constants';
 import { useComments } from '@/hooks/useComments';
 
+import ToastDeleteComment from '../ToastDeleteComment/ToastDeleteComment';
 import CommentForm from './CommentForm/CommentForm';
 import HeaderButtons from './HeaderButtons';
 import EditMode from './EditMode';
@@ -27,6 +28,7 @@ function Comment({
   profilePicture,
   id,
 }: IComment) {
+  const [showRemoveToast, setshowRemoveToast] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [isReply, setIsReply] = useState(false);
   const { myProfile, replies } = useComments();
@@ -48,12 +50,11 @@ function Comment({
             <HeaderButtons
               authorId={author_id}
               myProfileId={myProfile.id}
-              // Props para el editing mode
               isEditing={isEditing}
               setIsEditing={setIsEditing}
-              // Props para el reply mode...
               isReply={isReply}
               setIsReply={setIsReply}
+              setShowRemoveToast={setshowRemoveToast}
             />
           </CommentHeader>
           {isEditing ? (
@@ -63,6 +64,13 @@ function Comment({
           )}
         </CommentElements>
       </CommentBox>
+
+      {/* Para eliminar el comentario */}
+      <ToastDeleteComment
+        setShowRemoveToast={setshowRemoveToast}
+        commentId={id}
+        show={showRemoveToast}
+      />
 
       {/* Para cuando le de click al boton de reply */}
       {isReply && (

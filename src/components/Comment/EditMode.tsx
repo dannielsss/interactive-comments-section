@@ -55,7 +55,6 @@ function EditMode({ setIsEditing, cContent, cId }: EditModeProps) {
         $error={error}
       ></CommentTextarea>
       <EditModeButtonsBox>
-        {/* TODO: Falta hacer funcional el boton de update para actualizar el comentario en el contexto */}
         <ButtonForm onClick={onEditComment} $blue>
           Update
         </ButtonForm>

@@ -19,6 +19,16 @@ export const CommentsReducer = (
 
       state.comments[findCommentIndex].content = commentContent;
       return { ...state };
+    case 'DELETE_COMMENT':
+      const newComments = state.comments.filter(
+        (comment) => comment.id !== action.payload.commentId
+      );
+
+      const newReplies = state.replies.filter(
+        (comment) => comment.id !== action.payload.commentId
+      );
+
+      return { ...state, comments: newComments, replies: newReplies };
     case 'REPLY_COMMENT':
       return { ...state, replies: [...state.replies, action.payload] };
     default:

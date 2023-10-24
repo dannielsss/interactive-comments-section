@@ -25,6 +25,13 @@ export const useCommentsActions = () => {
     });
   };
 
+  const deleteComment = (commentId: string) => {
+    dispatch({
+      type: 'DELETE_COMMENT',
+      payload: { commentId },
+    });
+  };
+
   const newReply = (content: string, commentParentId: string) => {
     dispatch({
       type: 'REPLY_COMMENT',
@@ -40,5 +47,5 @@ export const useCommentsActions = () => {
     });
   };
 
-  return { newComment, newReply };
+  return { newComment, deleteComment, newReply };
 };

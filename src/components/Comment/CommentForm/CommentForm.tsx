@@ -1,5 +1,3 @@
-// TODO Funcion para hacer reply al boton
-
 import React, { FormEvent, useRef, useState } from 'react';
 import { useCommentsActions, useComments } from '@/hooks/useComments';
 import { ButtonForm } from '../../shared/ButtonForm';

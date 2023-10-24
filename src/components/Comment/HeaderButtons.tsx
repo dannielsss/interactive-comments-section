@@ -17,6 +17,9 @@ interface HeaderButtonsProps {
   // Props para el reply mode
   setIsReply: React.Dispatch<React.SetStateAction<boolean>>;
   isReply: boolean;
+
+  // Props para elimnar el comentario
+  setShowRemoveToast: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 function HeaderButtons({
@@ -26,12 +29,13 @@ function HeaderButtons({
   isEditing,
   setIsReply,
   isReply,
+  setShowRemoveToast,
 }: HeaderButtonsProps) {
   return (
     <div>
       {authorId === myProfileId ? (
         <>
-          <Button $deletemode={true}>
+          <Button onClick={() => setShowRemoveToast(true)} $deletemode={true}>
             <img src={IconDelete} alt="icon delete" /> Delete
           </Button>
           <Button onClick={() => setIsEditing(!isEditing)}>

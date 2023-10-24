@@ -35,6 +35,7 @@ export interface IUser {
 export type Actions =
   | { type: 'NEW_COMMENT'; payload: IComment }
   | { type: 'UPDATE_COMMENT'; payload: IEditComment }
+  | { type: 'DELETE_COMMENT'; payload: { commentId: string } }
   | { type: 'REPLY_COMMENT'; payload: IComment };
 
 // Interfaz para los valores del contexto
